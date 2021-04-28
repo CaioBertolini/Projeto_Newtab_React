@@ -1,17 +1,17 @@
-import React from "react"
-import "./user.css"
-
-var usuario = [
-    {
-        id: 1001,
-        name: "Eduardo Santos",
-        img: "https://randomuser.me/api/portraits/men/9.jpg",
-        username: "@eduardo.santos"
-    }
-]
-
+import React, { useState } from "react";
+import axios from 'axios';
+import "./user.css";
 
 export default function User(){
+
+    const [usuario, setUsuario] = useState([]);
+
+    axios.get(`https://www.mocky.io/v2/5d531c4f2e0000620081ddce`)
+      .then(res => {
+        const person = res.data;
+        setUsuario(person);
+    })
+
     return(
         usuario.map((item, key) =>
             <div className="usuarios">
