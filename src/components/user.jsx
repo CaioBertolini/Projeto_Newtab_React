@@ -13,10 +13,10 @@ export default function User(){
     })
 
     return(
-        usuario.map((item, key) =>
+        usuario.map((item) =>
             <div className="usuarios">
                 <div className="img-usuario">
-                    <img src={item.img}/>
+                    <img src={item.img} alt="Imagem usuário"/>
                 </div>
                 <div className="identi-usuario">
                     <div>
