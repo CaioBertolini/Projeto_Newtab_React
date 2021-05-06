@@ -4,6 +4,7 @@ import "./css/user.css";
 
 export default function User(){
 
+    // Consumo da API para listar usuários
     const [usuario, setUsuario] = useState([]);
 
     axios.get(`https://www.mocky.io/v2/5d531c4f2e0000620081ddce`)
@@ -12,6 +13,7 @@ export default function User(){
         setUsuario(person);
     })
 
+    // Ações do modal
     const [modalIsOpen, setModalIsOpen] = useState("none");
 
     const setModalIsOpenToTrue =()=>{
@@ -22,14 +24,15 @@ export default function User(){
         setModalIsOpen("none")
     }
 
+    // Lista dos cartões
     let cards = [
-        // valid card
+        // cartão valido
         {
           card_number: '1111111111111111',
           cvv: 789,
           expiry_date: '01/18',
         },
-        // invalid card
+        // cartão invalido
         {
           card_number: '4111111111111234',
           cvv: 123,
@@ -39,6 +42,7 @@ export default function User(){
 
     return(
         <>
+            {/* Listagem de usuários */}
             {usuario.map((item) =>
                 <div className="usuarios">
                     <div className="img-usuario">

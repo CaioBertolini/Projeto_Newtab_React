@@ -1,3 +1,4 @@
+/* Style da listagem de usuários */
 .usuarios{
     display: flex;
     flex-direction: row;
@@ -31,7 +32,7 @@
     padding-right: 20px;
 }
 
-
+/* Style do modal de pagamento */
 .modal-showing{
     display: flex;
     position: fixed;
