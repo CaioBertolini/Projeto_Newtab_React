@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Projeto_Newtab_React/static/css/main.5549ce43.chunk.css",
-    "main.js": "/Projeto_Newtab_React/static/js/main.8060ee7b.chunk.js",
-    "main.js.map": "/Projeto_Newtab_React/static/js/main.8060ee7b.chunk.js.map",
+    "main.css": "/Projeto_Newtab_React/static/css/main.93b2ee5a.chunk.css",
+    "main.js": "/Projeto_Newtab_React/static/js/main.4a357b7e.chunk.js",
+    "main.js.map": "/Projeto_Newtab_React/static/js/main.4a357b7e.chunk.js.map",
     "runtime-main.js": "/Projeto_Newtab_React/static/js/runtime-main.0934b7fb.js",
     "runtime-main.js.map": "/Projeto_Newtab_React/static/js/runtime-main.0934b7fb.js.map",
     "static/js/2.b88e699a.chunk.js": "/Projeto_Newtab_React/static/js/2.b88e699a.chunk.js",
     "static/js/2.b88e699a.chunk.js.map": "/Projeto_Newtab_React/static/js/2.b88e699a.chunk.js.map",
     "index.html": "/Projeto_Newtab_React/index.html",
-    "static/css/main.5549ce43.chunk.css.map": "/Projeto_Newtab_React/static/css/main.5549ce43.chunk.css.map",
+    "static/css/main.93b2ee5a.chunk.css.map": "/Projeto_Newtab_React/static/css/main.93b2ee5a.chunk.css.map",
     "static/js/2.b88e699a.chunk.js.LICENSE.txt": "/Projeto_Newtab_React/static/js/2.b88e699a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0934b7fb.js",
     "static/js/2.b88e699a.chunk.js",
-    "static/css/main.5549ce43.chunk.css",
-    "static/js/main.8060ee7b.chunk.js"
+    "static/css/main.93b2ee5a.chunk.css",
+    "static/js/main.4a357b7e.chunk.js"
   ]
 }
