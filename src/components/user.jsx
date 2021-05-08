@@ -39,7 +39,7 @@ export default function User(){
     const [payName, setPayName] = useState(""); // Constante para pegar nome usuário
     const [resulOpen, setResulOpen] = useState("none"); // Constante para abrir recebimento
     const [negativeOpen, setNegativeOpen] = useState(""); // Constante para mostrar o não do recebimento
-    const [valueCards, setValueCards] = useState(1); // Constante para valor do selection
+    const [valueCards, setValueCards] = useState("1"); // Constante para valor do selection
 
     // Abrir o modal de pagameto
     function modalPayOpen (name) {
@@ -50,7 +50,7 @@ export default function User(){
 
     // Abrir o modal de recibo de pagamento
     function modalResulOpen (value){
-        if (value === 1){
+        if (value === "1"){
             setNegativeOpen("")
         } else{
             setNegativeOpen("não")

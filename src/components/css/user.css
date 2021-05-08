@@ -75,3 +75,7 @@
     width: 20%;
     margin-bottom: 10px;
 }
+
+.modal-showing div{
+    text-align: center;
+}
