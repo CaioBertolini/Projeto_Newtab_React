@@ -108,7 +108,7 @@ export default function User(){
             <div className="modal-showing" style={{display: payIsOpen}}>
                 <span>Pagamento para <b>{payName}</b></span>
                 <div className="input-money">
-                    <NumberFormat thousandSeparator={true} value={valueMoney} onChange={inputChange} prefix={'R$ '} inputmode="numeric"/>
+                    <NumberFormat thousandSeparator={true} value={valueMoney} onChange={inputChange} prefix={'R$ '} inputmode="numeric" placeholder="R$ 0,00"/>
                     <p style={{display:requiredCamp}}>Campo obrigatório</p>
                 </div>
                 <select value={valueCards} onChange={handleChange}>
