@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import "./css/user.css";
+import NumberFormat from 'react-number-format';
 
 export default function User(){
 
@@ -52,14 +53,7 @@ export default function User(){
 
     // Função para filtrar o valor do dinheiro
     function inputChange(e){
-        e.preventDefault();
-        if (valueMoney === ""){
-            setValueMoney("R$ "+ e.target.value);
-        } else if (e.target.value === "R$ "){
-            setValueMoney("");
-        } else{
-            setValueMoney(e.target.value);
-        }
+        setValueMoney(e.target.value);
         setRequiredCamp("none");
     }
 
@@ -114,7 +108,7 @@ export default function User(){
             <div className="modal-showing" style={{display: payIsOpen}}>
                 <span>Pagamento para <b>{payName}</b></span>
                 <div className="input-money">
-                    <input type="text" value={valueMoney} onChange={inputChange} placeholder="R$ 0,00"/>
+                    <NumberFormat thousandSeparator={true} value={valueMoney} onChange={inputChange} prefix={'R$ '} inputmode="numeric"/>
                     <p style={{display:requiredCamp}}>Campo obrigatório</p>
                 </div>
                 <select value={valueCards} onChange={handleChange}>
