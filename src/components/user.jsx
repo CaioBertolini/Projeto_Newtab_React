@@ -40,6 +40,8 @@ export default function User(){
     const [resulOpen, setResulOpen] = useState("none"); // Constante para abrir recebimento
     const [negativeOpen, setNegativeOpen] = useState(""); // Constante para mostrar o não do recebimento
     const [valueCards, setValueCards] = useState("1"); // Constante para valor do selection
+    const [valueMoney, setValueMoney] = useState(""); // Constante para valor do dinheiro
+    const [requiredCamp, setRequiredCamp] = useState("none"); // Constante para validação de campo
 
     // Abrir o modal de pagameto
     function modalPayOpen (name) {
@@ -48,21 +50,42 @@ export default function User(){
         setPayName(name)
     }
 
-    // Abrir o modal de recibo de pagamento
-    function modalResulOpen (value){
-        if (value === "1"){
-            setNegativeOpen("")
+    // Função para filtrar o valor do dinheiro
+    function inputChange(e){
+        e.preventDefault();
+        if (valueMoney === ""){
+            setValueMoney("R$ "+ e.target.value);
+        } else if (e.target.value === "R$ "){
+            setValueMoney("");
         } else{
-            setNegativeOpen("não")
+            setValueMoney(e.target.value);
         }
-        setPayIsOpen("none")
-        setResulOpen("flex")
+        setRequiredCamp("none");
+    }
+
+    // Abrir o modal de recibo de pagamento
+    function modalResulOpen (){
+        if (valueMoney === ""){
+            setRequiredCamp("flex");
+        }
+        else{
+            if (valueCards === "1"){
+                setNegativeOpen("");
+            } else{
+                setNegativeOpen("não");
+            }
+            setPayIsOpen("none");
+            setResulOpen("flex");
+            setValueMoney("");
+            setRequiredCamp("none");
+        }
+        
     }
     
     // Fechamento do modal de recibo de pagamento
     function modalResulClose () {
-        setResulOpen("none")
-        setListTrasnp("flex")
+        setResulOpen("none");
+        setListTrasnp("flex");
     }
 
     return(
@@ -90,18 +113,21 @@ export default function User(){
             {/* Modal de pagamaneto */}
             <div className="modal-showing" style={{display: payIsOpen}}>
                 <span>Pagamento para <b>{payName}</b></span>
-                <input type="number" placeholder="R$ 0,00" required/>
+                <div className="input-money">
+                    <input type="text" value={valueMoney} onChange={inputChange} placeholder="R$ 0,00"/>
+                    <p style={{display:requiredCamp}}>Campo obrigatório</p>
+                </div>
                 <select value={valueCards} onChange={handleChange}>
                     <option value="1">Cartão com final {cards[0].card_number.substr(-4)}</option>
                     <option value="2">Cartão com final {cards[1].card_number.substr(-4)}</option>
                 </select>
-                <button onClick={()=>{modalResulOpen (valueCards)}}>Pagar</button>
+                <button onClick={()=>{modalResulOpen ()}}>Pagar</button>
             </div>
 
             {/* Modal de recibo de pagamento */}
             <div className="modal-showing" style={{display: resulOpen}}>
                 <span>Recibo de pagamento</span>
-                <div>O Pagamento <strong>{negativeOpen}</strong> foi concluido com sucesso</div>
+                <p>O Pagamento <strong>{negativeOpen}</strong> foi concluido com sucesso</p>
                 <button onClick={()=>{modalResulClose()}}>Fechar</button>
             </div>
         </>
