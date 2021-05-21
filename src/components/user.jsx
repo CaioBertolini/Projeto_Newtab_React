@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import "./css/user.css";
 import NumberFormat from 'react-number-format';
@@ -7,11 +7,14 @@ export default function User(){
 
     // Consumo da API para listar usuários
     const [usuario, setUsuario] = useState([]);
-    axios.get(`https://www.mocky.io/v2/5d531c4f2e0000620081ddce`)
-      .then(res => {
-        const person = res.data;
-        setUsuario(person);
-    })
+    
+    useEffect(() => {
+        axios.get(`https://www.mocky.io/v2/5d531c4f2e0000620081ddce`)
+        .then(res => {
+            const person = res.data;
+            setUsuario(person);
+        })
+    },[])
 
     // Lista dos cartões
     let cards = [
